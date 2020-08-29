@@ -1,14 +1,5 @@
-# -*- coding: utf-8 -*-
-#Clase 3
-#Ejercicio 3.1: Semántica - solucion_errores.py
-#Ejercicio 3.2: Sintaxis
-#Ejercicio 3.3: Tipos
-#Ejercicio 3.4: Alcances
-#Ejercicio 3.5: Pisando memoria
-
-#Ejercicios de errores en el código
-
 #%%
+#Ejercicios de errores en el código
 #Ejercicio 3.1: Semántica
 #Comentario: Dos errores de tipo semántico. Línea 21 y Línea 25
 #    Error línea 21: lo corregí modificando la expresión a minúscula.

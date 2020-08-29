@@ -145,6 +145,7 @@ pprint(camion)
 En este primer ejercicio tenés que escribir una función buscar_u_elemento() que reciba una lista y un elemento y devuelva la posición de la última aparición de ese elemento en la lista (o -1 si el elemento no pertenece a la lista).
 Agregale a tu programa busqueda_en_listas.py una función buscar_n_elemento() que reciba una lista y un elemento y devuelva la cantidad de veces que aparece el elemento en la lista. Probá también esta función con algunos ejemplos.
 '''
+# si z es igual a e (elemento que queremos buscar), pos (posición) toma el índice de e. Si no, devuelve -1.
 
 def buscar_u_elemento(lista, e):
     pos = -1
@@ -163,6 +164,8 @@ print(buscar_u_elemento([1,2,3,2,3,4],5))
 '''
 Agregale a tu archivo busqueda_en_listas.py una función maximo() que busque el valor máximo de una lista de números positivos. Python tiene el comando max que ya hace esto, pero como práctica te propomenos que completes el siguiente código:
 '''
+
+
 def maximo(lista):
     '''Devuelve el máximo de una lista, 
     la lista debe ser no vacía y de números positivos.
@@ -170,7 +173,7 @@ def maximo(lista):
     # m guarda el máximo de los elementos a medida que recorro la lista. 
     m = lista[0] # Lo inicializo en 0
     for e in lista: # Recorro la lista y voy guardando el mayor
-        if e > m:
+        if e > m:   # si e es mayor a m, remplazo m por e
             m = e
     return m
 
@@ -187,8 +190,10 @@ print(maximo([-5,-4]))
 
 def invertir_lista(lista):
     invertida = []
+    resto = 0 # empiezo en cero
     for i in range(len(lista)):
-        invertida.append(lista[i-1])
+        resto -= 1 # en la primer vuelta voy a pedir el elemento en la posición -1, en la 2da el -2, etc.
+        invertida.append(lista[resto]) 
     return invertida
 
 print(invertir_lista([1, 2, 3, 4, 5]))
@@ -201,11 +206,38 @@ print(invertir_lista(['Bogotá', 'Rosario', 'Santiago', 'San Fernando', 'San Mig
 #Escribí una función llamada propagar que reciba un vector con 0's, 1's y -1's y devuelva un vector en el que los 1's se propagaron a sus vecinos con 0. Guardalo en un archivo propaga.py.
 #  0 (nuevo), un 1 (encendido) o un -1 (carbonizado).
 
-def propagar(lista):
-    print(lista)
- 
+#def propagar(lista):
+    #print(lista)
+'''
+000001-1
+-1-1-1-1-1-1
 
-print(propagar([ 0, 0, 0,-1, 1, 0, 0, 0,-1, 0, 1, 0, 0]))
+000100-10
+-1-1-1-1-1-1-10
+
+000-1000-110
+000-1000-1-1-1
+'''
+lista = [0, 0, 0, 1, -1, 0]
+l2 = []
+
+for n_f, f in enumerate(lista):
+    if f == 1:
+        for n_f2, f2 in enumerate(lista):
+            if f2 <= 0:
+                f2 = -1
+            else:
+                pass
+            
+        lista[f] = -1
+    else:
+        pass
+    print(lista)
+print('heha', lista)
+    
+
+
+#print(propagar([ 0, 0, 0,-1, 1, 0, 0, 0,-1, 0, 1, 0, 0]))
 #%%
 # 3.4 Comprensión de listas
 
@@ -469,9 +501,9 @@ especies del ejemplo como parámetro (['Eucalipto', 'Palo borracho rosado', 'Jac
 y la arboleda entera, deberías recibir un diccionario con tres entradas (una por especie), cada una con una lista 
 asociada conteniendo 4112, 3150 y 3255 pares de números (altos y diámetros), respectivamente.
 '''
-medidas2 = []
-for especie in especies:
-    medidas2.append([{especie:(float(arbol['altura_tot']), int(arbol['diametro']))} for arbol in arboleda if arbol['nombre_com'] == especie])
+#medidas2 = []
+#for especie in especies:
+#    medidas2.append([{especie:(float(arbol['altura_tot']), int(arbol['diametro']))} for arbol in arboleda if arbol['nombre_com'] == especie])
 
 especies = ['Eucalipto', 'Palo borracho rosado', 'Jacarandá']
 
