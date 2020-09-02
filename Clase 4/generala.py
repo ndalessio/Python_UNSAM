@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-"""
-generala.py
-"""
+#generala.py
+# No resolví la posibilidad que en el segundo tiro obtenga mejores dados que los que venía acumulado, e intercambiarlos.
 
+#%%
 def tirar(cant_dados):
    tirada = []
    for i in range(cant_dados):
@@ -28,28 +28,19 @@ def tirar_3_veces():
         if len(caras[rep]) > len(dados_selec):
             dados_selec = caras[rep]
             
-    #print("dados select", dados_selec) 
-
     # tiro 2 de acuerdo a la cantidad de dados que no "guardé"
-    # tengo que resolver la posibilidad de que en el primer tiro sean todos dif, y en el segundo agarre 2
     tiro_2 = tirar(5-len(dados_selec))
     
-    #print("tiro_2", tiro_2)
-    
+    #si se encuentra en los dados que seleccioné appendeo
     for i in tiro_2:
         if i in dados_selec:
             dados_selec.append(i)
-
-
-    #print("dados al tiro dos:", dados_selec)
     
     tiro_3 = tirar(5-len(dados_selec))
     
     for i in tiro_3:
         if i in dados_selec:
             dados_selec.append(i)
-            
-    #print("dados al tiro tres:", dados_selec)
     
     if len(dados_selec) == 5:
         return True
