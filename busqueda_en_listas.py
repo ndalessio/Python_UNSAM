@@ -26,8 +26,6 @@ print(buscar_u_elemento([1,2,3,2,3,4],5))
 '''
 Agregale a tu archivo busqueda_en_listas.py una función maximo() que busque el valor máximo de una lista de números positivos. Python tiene el comando max que ya hace esto, pero como práctica te propomenos que completes el siguiente código:
 '''
-
-
 def maximo(lista):
     '''Devuelve el máximo de una lista, 
     la lista debe ser no vacía y de números positivos.
@@ -43,3 +41,22 @@ print(maximo([1,2,7,2,3,4]))
 print(maximo([1,2,3,4]))
 print(maximo([-5,4]))
 print(maximo([-5,-4]))
+
+#%%
+def busqueda_lineal_ordenada(lista, e):
+    '''Si e está en la lista devuelve su posición, de lo
+    contrario devuelve -1.
+    '''
+    lista.sort()
+    
+    pos = -1  # comenzamos suponiendo que e no está
+    for i, z in enumerate(lista): # recorremos la lista
+        if i <= e:
+            if z == e:   # si encontramos a e
+                pos = i  # guardamos su posición
+                break    # y salimos del ciclo
+        elif i > e:
+            break
+    return pos
+
+resultado = busqueda_lineal_ordenada([1, 4, 54, 3, 0, -1], 3)
